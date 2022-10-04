@@ -27,9 +27,7 @@ int main(void)
 	gfx_PrintStringXY("Calculator", 103, 20);
     gfx_PrintStringXY("Street", 103, 55);
 	gfx_PrintStringXY("Racing", 103, 80);
-    gfx_SetColor(0x10);
     gfx_PrintStringXY("III", 110, 120);
-    gfx_SetColor(0x00);
 	gfx_SetTextScale(1, 1);
 	gfx_PrintStringXY("Press any key", 80, 150);
 	gfx_PrintStringXY("oxiti8", 200, 200);
