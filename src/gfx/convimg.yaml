@@ -1,0 +1,21 @@
+palettes:
+  - name: global_palette
+    fixed-entries:
+      - color: {index: 255, r: 255, g: 0, b: 255}
+    images: automatic
+
+converts:
+  - name: sprites
+    palette: global_palette
+    transparent-color-index: 255
+    images:
+      - xlibcpallette.png
+
+outputs:
+  - type: c
+    include-file: gfx.h
+    palettes:
+      - global_palette
+    converts:
+      - sprites
+
