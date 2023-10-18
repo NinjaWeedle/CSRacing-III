@@ -18,14 +18,25 @@ void raceMenu(){
 	gfx_BlitBuffer();
 }
 
+bool startRace(){
+
+}
+void displayCredits(char color){
+	gfx_SetTextFGColor(color);
+	gfx_SetTextScale(1, 1);
+	gfx_PrintStringXY("Cr: ", 225, 0);
+
+
+}
+
 bool mainMenu(){
 
 		uint8_t selected_option = 0;
 		bool key = false;
-		gfx_FillScreen(0xFE);
+		gfx_ZeroScreen();
 		gfx_SetTextFGColor(0x0A);
-		gfx_PrintStringXY("WELCOME TO CALCULATOR STREET RACING III", 0, 0);
-		gfx_SetTextFGColor(0xDF);
+		gfx_PrintStringXY("HOME", 0, 0);
+		displayCredits(0xDF);
 		gfx_SetTextScale(1, 1);
 		gfx_PrintStringXY("Go Race", 20, 50);
 		gfx_PrintStringXY("Change Car", 20, 70);
@@ -34,7 +45,7 @@ bool mainMenu(){
 		gfx_PrintStringXY("Options", 20, 130);
 		gfx_PrintStringXY("About", 20, 150);
 		gfx_PrintStringXY("Quit Game", 20, 170);
-		gfx_SetColor(0xFE);
+		gfx_SetColor(0);
 		while(!key) {
 			kb_Scan();
 			key = (kb_Data[1] == kb_2nd);
@@ -75,18 +86,17 @@ bool mainMenu(){
 				
 				case 5:
 					key = false;
-					gfx_FillScreen(0xFE);
+					gfx_ZeroScreen();
 					gfx_SetTextFGColor(0x0A);
 					gfx_PrintStringXY("ABOUT", 0, 0);
 					gfx_SetTextFGColor(0xDF);
 					gfx_PrintStringXY("Calculator Street Racing III", 0, 40);
-					gfx_PrintStringXY("Game by oxiti8. V0.1 10/11/23", 0, 50);
+					gfx_PrintStringXY("Game by oxiti8. Pre-Alpha 10/17/23", 0, 50);
 					gfx_PrintStringXY("Controls:", 20, 70);
 					gfx_PrintStringXY("2nd = Rev engine/Select", 20, 80);
-					gfx_PrintStringXY("Alpha = Slightly rev engine", 20, 90);
+					gfx_PrintStringXY("Alpha = Use Nitrous", 20, 90);
 					gfx_PrintStringXY("Up = Shift up", 20, 100);
 					gfx_PrintStringXY("Down = Shift down", 20, 110);
-					gfx_PrintStringXY("Mode = Use Nitrous", 20, 120);
 					gfx_BlitBuffer();
 					delay(300);
 					while(!key) {
@@ -108,15 +118,14 @@ int main(void)
 	bool exit = false;
 	gfx_Begin(gfx_8bpp);
 	gfx_Blit(gfx_screen);
-	gfx_FillScreen(0xFD);
+	gfx_FillScreen(0xFF);
     gfx_SetDrawBuffer();
 	gfx_SetColor(0xE0);
-	gfx_SetTextFGColor(0xFD);
+	gfx_SetTextFGColor(0);
 	gfx_SetTextScale(1, 1);
 	gfx_PrintStringXY("Calculator Street Racing III", 60, 20);
 	gfx_PrintStringXY("Press any key", 100, 150);
 	gfx_PrintStringXY("oxiti8", 280, 220);
-	gfx_SetPalette(global_palette, sizeof_global_palette, 0);
 	gfx_BlitBuffer();
 	while(!kb_AnyKey());
 	while(!exit){
